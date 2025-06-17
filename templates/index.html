@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPA Calculator - Hilal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📘 GPA Calculator</h1>
+        <p class="subtitle">by Hilal Khan</p>
+
+        <form method="POST">
+            <label>🔹 NLP Marks:</label>
+            <input type="text" name="nlp" required>
+
+            <label>🔹 Deep Learning Marks:</label>
+            <input type="text" name="dl" required>
+
+            <label>🔹 Stochastic Process Marks:</label>
+            <input type="text" name="sp" required>
+
+            <label>🔹 Parallel & Distributed Computing Marks:</label>
+            <input type="text" name="pdc" required>
+
+            <button type="submit">Calculate GPA</button>
+        </form>
+
+        {% if total_gpa %}
+        <div class="result">
+            <h2>📊 Results</h2>
+            <p><strong>Total Marks:</strong> {{ total_marks }}</p>
+            <p><strong>GPA:</strong> {{ total_gpa }}</p>
+            <p><strong>Percentage:</strong> {{ percentage }}%</p>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
